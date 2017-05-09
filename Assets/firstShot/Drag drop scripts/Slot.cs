@@ -20,7 +20,11 @@ public class Slot : MonoBehaviour , IDropHandler{
 
 	public void OnDrop (PointerEventData eventData)
 	{
-		DragHandeler.itemBeginDragged.transform.SetParent (transform);
+		if (DragHandeler.itemBeginDragged != null) 
+		{
+			DragHandeler.itemBeginDragged.transform.SetParent (transform);
+		}
+
 		/*
 		if (!item) 
 		{

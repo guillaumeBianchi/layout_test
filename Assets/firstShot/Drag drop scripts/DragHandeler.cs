@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 
 public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler{
 
+	public float distance_to_camera;
 	public static GameObject itemBeginDragged;
 	public GameObject support;
 	Vector3 startPosition;
@@ -43,10 +44,10 @@ public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	{
 		Vector3 mousePos = new Vector3 ();
 		mousePos = Input.mousePosition;
-		float distance = -Camera.main.transform.position.z + support.transform.position.z - 20;
+		float distance = -Camera.main.transform.position.z + support.transform.position.z - distance_to_camera;
 		mousePos.z = distance;
 		transform.position = Camera.main.ScreenToWorldPoint(mousePos);
-		Debug.Log (transform.position);
+		//Debug.Log (transform.position);
 	}
 
 	#endregion
